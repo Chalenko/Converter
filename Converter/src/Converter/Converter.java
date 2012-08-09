@@ -10,11 +10,12 @@ public class Converter {
 	public static final Logger LOG=Logger.getLogger(Converter.class);
 	public static void main(String[] args) {
 	    Frame.Create();
-	    /*
 	    Convert(Temperature.CELSIUM, Temperature.KELVIN, -273.15);
 	    Convert(Temperature.CELSIUM, Temperature.KELVIN, 0);
 	    Convert(Temperature.CELSIUM, Temperature.KELVIN, 100);
-	    */
+	    Convert(Temperature.KELVIN, Temperature.CELSIUM, 0);
+	    Convert(Temperature.KELVIN, Temperature.KELVIN, 70);
+	    Convert(Temperature.CELSIUM, Temperature.CELSIUM, 30);
 	}
     public enum Temperature {
     	CELSIUM(0, "Celsium"), KELVIN(1, "Kelvin"), FAHRENHEIT(2, "Fahrenheit"), RANKIN(3, "Rankin"), DELISLE(4, "Delisle"), NEWTON(5, "Newton"), REAMUR(6, "Reamur"), ROMER(7, "Romer");
