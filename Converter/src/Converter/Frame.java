@@ -2,8 +2,11 @@ package Converter;
 
 import java.awt.*;
 import javax.swing.*;
+import org.apache.log4j.Logger;
 
 public class Frame {
+	private static Logger LOGINFRAME = Logger.getLogger(Frame.class);
+
 	public static void Create() {
 		JFrame jf = new JFrame("Converter");
 		jf.setBounds(312, 234, 400, 300);
@@ -17,12 +20,12 @@ public class Frame {
 		p2.setLayout(new GridLayout(3, 1));
 
 		JRadioButton jRadioButtonFromCelsium = new JRadioButton("Celsium",
-				false);
+				true);
 		JRadioButton jRadioButtonFromKelvin = new JRadioButton("Kelvin", false);
 		JRadioButton jRadioButtonFromFahrenheit = new JRadioButton(
 				"Fahrenheit", false);
 
-		JRadioButton jRadioButtonToCelsium = new JRadioButton("Celsium", false);
+		JRadioButton jRadioButtonToCelsium = new JRadioButton("Celsium", true);
 		JRadioButton jRadioButtonToKelvin = new JRadioButton("Kelvin", false);
 		JRadioButton jRadioButtonToFahrenheit = new JRadioButton("Fahrenheit",
 				false);
@@ -48,5 +51,6 @@ public class Frame {
 		cp.add(p1, BorderLayout.WEST);
 		cp.add(p2, BorderLayout.EAST);
 		jf.setVisible(true);
+		LOGINFRAME.info("Frame opened succes");
 	}
 }
