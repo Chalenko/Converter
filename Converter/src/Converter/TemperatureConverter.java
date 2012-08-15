@@ -73,7 +73,7 @@ public class TemperatureConverter {
 	}
 
 	private static double CelsiumToFahrenheit(final double cels) {
-		return (cels * (9 / 5)) + 32;
+		return cels * 9 / 5 + 32;
 	}
 
 	private static double CelsiumToCelsium(final double cels) {

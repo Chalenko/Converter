@@ -31,6 +31,25 @@ public class Converter {
 				System.exit(0);
 				break;
 			case 1:
+				ConsoleReader.decode();
+				if(ConsoleReader.getFrom().equals("Celsium")){
+					conv.setFrom(Temperature.CELSIUM);
+				}
+				if(ConsoleReader.getFrom().equals("Kelvin")){
+					conv.setFrom(Temperature.KELVIN);
+				}
+				if(ConsoleReader.getFrom().equals("Fahrenheit")){
+					conv.setFrom(Temperature.FAHRENHEIT);
+				}
+				if(ConsoleReader.getTo().equals("Celsium")){
+					conv.setTo(Temperature.CELSIUM);
+				}
+				if(ConsoleReader.getTo().equals("Kelvin")){
+					conv.setTo(Temperature.KELVIN);
+				}
+				if(ConsoleReader.getTo().equals("Fahrenheit")){
+					conv.setTo(Temperature.FAHRENHEIT);
+				}
 				break;
 			case 2:
 				conv.swap();
