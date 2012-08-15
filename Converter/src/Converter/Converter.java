@@ -17,8 +17,9 @@ public class Converter {
 		TemperatureConverter conv = new TemperatureConverter();
 		conv.setFrom(Temperature.CELSIUM);
 		conv.setTo(Temperature.KELVIN);
+		Frame.CreateTemperatureFrame(conv);
 		/*
-		 * Frame.Create(); cels2kel.Convert(-273.15); cels2kel.Convert(0);
+		 * cels2kel.Convert(-273.15); cels2kel.Convert(0);
 		 * cels2kel.Convert(100); new TemperatureConverter(Temperature.KELVIN,
 		 * Temperature.CELSIUM).Convert(0); new
 		 * TemperatureConverter(Temperature.KELVIN,
