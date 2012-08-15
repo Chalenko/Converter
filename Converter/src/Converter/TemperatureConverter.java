@@ -26,7 +26,7 @@ enum Temperature {
 
 public class TemperatureConverter {
 	private Temperature from = Temperature.CELSIUM;
-	private Temperature to = Temperature.CELSIUM;
+	private Temperature to = Temperature.KELVIN;
 	private static Logger LOGINTEMPERATURE = Logger
 			.getLogger(TemperatureConverter.class);
 
@@ -37,6 +37,27 @@ public class TemperatureConverter {
 		this.from = _from;
 		this.to = _to;
 	}
+	
+	TemperatureConverter(String _from, String _to) {
+		if(_from.equals("Celsium")){
+			this.from = Temperature.CELSIUM;
+		}
+		if(_from.equals("Kelvin")){
+			this.from = Temperature.KELVIN;
+		}
+		if(_from.equals("Fahrenheit")){
+			this.from = Temperature.FAHRENHEIT;
+		}
+		if(_to.equals("Celsium")){
+			this.to = Temperature.CELSIUM;
+		}
+		if(_to.equals("Kelvin")){
+			this.to = Temperature.KELVIN;
+		}
+		if(_to.equals("Fahrenheit")){
+			this.to = Temperature.FAHRENHEIT;
+		}
+	}
 
 	public Temperature getFrom() {
 		return from;
@@ -45,6 +66,18 @@ public class TemperatureConverter {
 	public void setFrom(Temperature _from) {
 		this.from = _from;
 	}
+	
+	public void setFrom(String _from) {
+		if(_from.equals("Celsium")){
+			this.from = Temperature.CELSIUM;
+		}
+		if(_from.equals("Kelvin")){
+			this.from = Temperature.KELVIN;
+		}
+		if(_from.equals("Fahrenheit")){
+			this.from = Temperature.FAHRENHEIT;
+		}
+	}
 
 	public Temperature getTo() {
 		return to;
@@ -52,6 +85,18 @@ public class TemperatureConverter {
 
 	public void setTo(Temperature _to) {
 		this.to = _to;
+	}
+	
+	public void setTo(String _to) {
+		if(_to.equals("Celsium")){
+			this.to = Temperature.CELSIUM;
+		}
+		if(_to.equals("Kelvin")){
+			this.to = Temperature.KELVIN;
+		}
+		if(_to.equals("Fahrenheit")){
+			this.to = Temperature.FAHRENHEIT;
+		}
 	}
 
 	public void swap() {
