@@ -1,23 +1,28 @@
-package Converter;
+package converter;
+
+import java.util.HashSet;
 
 import org.apache.log4j.Logger;
-import Converter.TemperatureConverter;
-import Converter.ConsoleReader;
 
-public class Converter {
+import converter.temperature.CelsiumToCelsium;
+import converter.temperature.KelvinToCelsium;
+
+public class Converter{
 
 	/**
 	 * @param args
 	 */
+	private static HashSet<ConversionUnit> convUnits = new HashSet<ConversionUnit>();
 	public static final Logger LOGINCONVERTER = Logger
 			.getLogger(Converter.class);
 
 	public static void main(String[] args) {
 		LOGINCONVERTER.info("Converter started succes");
-		TemperatureConverter conv = new TemperatureConverter();
-		conv.setFrom(Temperature.CELSIUM);
-		conv.setTo(Temperature.KELVIN);
-		Frame.CreateTemperatureFrame(conv);
+		convUnits.add(new KelvinToCelsium());
+		ConversionUnit conv1 = new KelvinToCelsium();
+		ConversionUnit conv2 = new CelsiumToCelsium();
+		System.out.println(conv2.convert(conv1.convert(0)));
+		//Frame.CreateTemperatureFrame(conv);
 		/*
 		 * cels2kel.Convert(-273.15); cels2kel.Convert(0);
 		 * cels2kel.Convert(100); new TemperatureConverter(Temperature.KELVIN,
@@ -26,6 +31,7 @@ public class Converter {
 		 * Temperature.KELVIN).Convert(70); new
 		 * TemperatureConverter().Convert(30);
 		 */
+		/*
 		while (true) {
 			switch (ConsoleReader.run()) {
 			case 0:
@@ -46,5 +52,14 @@ public class Converter {
 				break;
 			}
 		}
+		*/
+	}
+	
+	public double convert(double inputData, int fromUnitId, int toUnitId){
+		return 0;
+	}
+	
+	public void addUnits(final ConversionUnit unit){
+		convUnits.add(unit);
 	}
 }

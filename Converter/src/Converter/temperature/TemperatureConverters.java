@@ -1,51 +1,25 @@
-package Converter;
+package converter.temperature;
 
 import org.apache.log4j.Logger;
 
-enum Temperature {
-UNKNOWN(-1, "Unknown"), CELSIUM(0, "Celsium"), KELVIN(1, "Kelvin"), FAHRENHEIT(2, "Fahrenheit"), RANKINE(3, "Rankine"), DELISLE(
-        4, "Delisle"), NEWTON(5, "Newton"), REAMUR(6, "Reamur"), ROMER(7, "Romer");
 
-private final int index;
-private final String name;
 
-Temperature(int _index, String _name) {
-	this.index = _index;
-	this.name = _name;
-}
 
-public int getIndex() {
-	return index;
-}
+public class TemperatureConverters {
+	private Temperature from = converter.temperature.Temperature.CELSIUM;
+	private Temperature to = converter.temperature.Temperature.KELVIN;
+	private static Logger LOGINTEMPERATURE = Logger
+			.getLogger(Temperature.class);
 
-public String getName() {
-	return name;
-}
-
-public static Temperature find(String name) {
-	for (Temperature t : Temperature.values()) {
-		if (t.getName().equals(name)) {
-			return t;
-		}
-	}
-	return UNKNOWN;
-}
-}
-
-public class TemperatureConverter {
-	private Temperature from = Temperature.CELSIUM;
-	private Temperature to = Temperature.KELVIN;
-	private static Logger LOGINTEMPERATURE = Logger.getLogger(TemperatureConverter.class);
-
-	TemperatureConverter() {
+	TemperatureConverters() {
 	}
 
-	TemperatureConverter(Temperature _from, Temperature _to) {
+	TemperatureConverters(Temperature _from, Temperature _to) {
 		this.from = _from;
 		this.to = _to;
 	}
 
-	TemperatureConverter(String _from, String _to) {
+	TemperatureConverters(String _from, String _to) {
 		this.from = Temperature.find(_from);
 		this.to = Temperature.find(_to);
 	}
@@ -198,6 +172,7 @@ public class TemperatureConverter {
 		default:
 			break;
 		}
-		LOGINTEMPERATURE.info("From " + temp + " " + from.getName() + " to " + result + " " + to.getName());
+		LOGINTEMPERATURE.info("From " + temp + " " + from.getName() + " to "
+				+ result + " " + to.getName());
 	}
 }
