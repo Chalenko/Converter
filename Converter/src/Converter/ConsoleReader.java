@@ -3,12 +3,21 @@ package converter;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import converter.temperature.Temperature;
+import converter.length.Length;
+
 public final class ConsoleReader {
 	static Scanner sc = new Scanner(System.in);
+	private static double data = 0;
 	private static String str = "";
-	private static String from = "Celsium";
-	private static String to = "Kelvin";
+	private static String from = "Unknown";
+	private static String to = "Unknown";
+	private static String hashCode = "";
 
+	public static double getData() {
+		return data;
+	}
+	
 	public static String getStr() {
 		return str;
 	}
@@ -20,26 +29,32 @@ public final class ConsoleReader {
 	public static String getTo() {
 		return to;
 	}
+	
+	public static String getHashCode() {
+		return hashCode;
+	}
 
 	public static void decode() {
-		str = sc.nextLine();
 		StringTokenizer st = new StringTokenizer(str, " \t\n\r,.");
+		data = Double.valueOf(st.nextToken());
 		from = st.nextToken();
 		st.nextToken();
 		to = st.nextToken();
+		createHash();
+	}
+	
+	public static void createHash() {
+		hashCode = hashCode.concat(Temperature.find(from).getID());
+		hashCode = hashCode.concat(Length.find(from).getID());
+		hashCode = hashCode.concat(Temperature.find(to).getID());
+		hashCode = hashCode.concat(Length.find(to).getID());
 	}
 
 	static int run() {
-		Integer code = 3;
+		int code = 1;
 		str = sc.nextLine();
 		if (str.equals("exit")) {
 			code = 0;
-		}
-		if (str.equals("change")) {
-			code = 1;
-		}
-		if (str.equals("swap")) {
-			code = 2;
 		}
 		return code;
 	}

@@ -1,20 +1,19 @@
 package converter.temperature;
 
 public enum Temperature {
-	UNKNOWN(-1, "Unknown"), CELSIUM(0, "Celsium"), KELVIN(1, "Kelvin"), FAHRENHEIT(
-			2, "Fahrenheit"), RANKINE(3, "Rankine"), DELISLE(4, "Delisle"), NEWTON(
-			5, "Newton"), REAMUR(6, "Reamur"), ROMER(7, "Romer");
+	UNKNOWN("", "Unknown"), CELSIUM("0t", "Celsium"), KELVIN("1t", "Kelvin"), FAHRENHEIT(
+			"2t", "Fahrenheit");
 
-	private final int index;
+	private final String id;
 	private final String name;
 
-	Temperature(int _index, String _name) {
-		this.index = _index;
-		this.name = _name;
+	Temperature(String id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
-	public int getIndex() {
-		return index;
+	public String getID() {
+		return id;
 	}
 
 	public String getName() {

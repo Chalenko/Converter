@@ -1,37 +1,21 @@
 package converter;
 
-import java.util.HashSet;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
-import converter.temperature.CelsiumToCelsium;
-import converter.temperature.KelvinToCelsium;
+import converter.temperature.*;
 
 public class Converter{
 
 	/**
 	 * @param args
 	 */
-	private static HashSet<ConversionUnit> convUnits = new HashSet<ConversionUnit>();
-	public static final Logger LOGINCONVERTER = Logger
-			.getLogger(Converter.class);
+	private static HashMap<String, ConversionUnit> convUnits = new HashMap<String, ConversionUnit>();
+	private static Logger LOGINCONVERTER = Logger.getLogger(Converter.class);
 
 	public static void main(String[] args) {
-		LOGINCONVERTER.info("Converter started succes");
-		convUnits.add(new KelvinToCelsium());
-		ConversionUnit conv1 = new KelvinToCelsium();
-		ConversionUnit conv2 = new CelsiumToCelsium();
-		System.out.println(conv2.convert(conv1.convert(0)));
-		//Frame.CreateTemperatureFrame(conv);
-		/*
-		 * cels2kel.Convert(-273.15); cels2kel.Convert(0);
-		 * cels2kel.Convert(100); new TemperatureConverter(Temperature.KELVIN,
-		 * Temperature.CELSIUM).Convert(0); new
-		 * TemperatureConverter(Temperature.KELVIN,
-		 * Temperature.KELVIN).Convert(70); new
-		 * TemperatureConverter().Convert(30);
-		 */
-		/*
+		init();
 		while (true) {
 			switch (ConsoleReader.run()) {
 			case 0:
@@ -39,27 +23,33 @@ public class Converter{
 				break;
 			case 1:
 				ConsoleReader.decode();
-				conv.setFrom(ConsoleReader.getFrom());
-				conv.setTo(ConsoleReader.getTo());
-				break;
-			case 2:
-				conv.swap();
-				break;
-			case 3:
-				conv.Convert(Double.parseDouble(ConsoleReader.getStr()));
+				//conv.setFrom(ConsoleReader.getFrom());
+				//conv.setTo(ConsoleReader.getTo());
+				double result = convUnits.get(ConsoleReader.getHashCode()).convert(ConsoleReader.getData());
+				System.out.println(result);
 				break;
 			default:
 				break;
 			}
 		}
-		*/
 	}
 	
 	public double convert(double inputData, int fromUnitId, int toUnitId){
 		return 0;
 	}
 	
-	public void addUnits(final ConversionUnit unit){
-		convUnits.add(unit);
+	public static void init(){
+		LOGINCONVERTER.info("Converter started succes");
+		convUnits.put(CelsiumToCelsium.getHashCode(), new CelsiumToCelsium());
+		convUnits.put(CelsiumToFahrenheit.getHashCode(), new CelsiumToFahrenheit());
+		convUnits.put(CelsiumToKelvin.getHashCode(), new CelsiumToKelvin());
+		convUnits.put(FahrenheitToCelsium.getHashCode(), new FahrenheitToCelsium());
+		convUnits.put(KelvinToCelsium.getHashCode(), new KelvinToCelsium());
 	}
+	
+	/*
+	public void addUnits(final ConversionUnit unit){
+		//convUnits.add(unit);
+	}
+	*/
 }

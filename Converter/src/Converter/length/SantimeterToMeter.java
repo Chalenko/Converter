@@ -1,18 +1,19 @@
 package converter.length;
 
-public final class YardToMeter extends LengthConverter {
+public final class SantimeterToMeter extends LengthConverter {
 
-	public YardToMeter() {
+	public SantimeterToMeter() {
 		// TODO Auto-generated constructor stub
 		super();
-		fromUnitId = Length.YARD.getID();
+		fromUnitId = Length.SANTIMETER.getID();
 		toUnitId = Length.METER.getID();
-		hashCode = "3l0l";
+		hashCode = "2l0l";
 	}
 
 	@Override
 	public double convert(double inputData) {
 		// TODO Auto-generated method stub
-		return inputData * 0.9144;
+		return inputData/100;
 	}
+
 }

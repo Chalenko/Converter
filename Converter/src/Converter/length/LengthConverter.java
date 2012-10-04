@@ -3,22 +3,23 @@ package converter.length;
 import converter.ConversionUnit;
 
 public abstract class LengthConverter implements ConversionUnit {
-	protected int fromUnitId;
-	protected int toUnitId;
+	protected String fromUnitId;
+	protected String toUnitId;
+	protected static String hashCode= "";
 	
 	LengthConverter(){
-		fromUnitId = Length.UNKNOWN.getIndex();
-		toUnitId = Length.UNKNOWN.getIndex();
+		fromUnitId = Length.UNKNOWN.getID();
+		toUnitId = Length.UNKNOWN.getID();
 	}
 
 	@Override
-	public int getFromUnitId() {
+	public String getFromUnitId() {
 		// TODO Auto-generated method stub
 		return fromUnitId;
 	}
 
 	@Override
-	public int getToUnitId() {
+	public String getToUnitId() {
 		// TODO Auto-generated method stub
 		return toUnitId;
 	}

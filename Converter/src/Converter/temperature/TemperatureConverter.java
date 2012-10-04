@@ -4,23 +4,24 @@ import converter.ConversionUnit;
 
 public abstract class TemperatureConverter implements ConversionUnit {
 
-	protected int fromUnitId;
-	protected int toUnitId;
+	protected String fromUnitId;
+	protected String toUnitId;
 	
 	TemperatureConverter(){
-		fromUnitId = Temperature.UNKNOWN.getIndex();
-		toUnitId = Temperature.UNKNOWN.getIndex();
+		fromUnitId = Temperature.UNKNOWN.getID();
+		toUnitId = Temperature.UNKNOWN.getID();
 	}
 
 	@Override
-	public int getFromUnitId() {
+	public String getFromUnitId() {
 		// TODO Auto-generated method stub
 		return fromUnitId;
 	}
 
 	@Override
-	public int getToUnitId() {
+	public String getToUnitId() {
 		// TODO Auto-generated method stub
 		return toUnitId;
 	}
+	
 }
